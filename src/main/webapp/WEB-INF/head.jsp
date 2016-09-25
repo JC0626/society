@@ -72,6 +72,7 @@
                                     欢迎您，${sessionScope.user.userName} <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="/vote/topic/1/page/1">投票</a></li>
                                     <li><a href="/message/list/user/page/1/1">已审核留言</a></li>
                                     <li><a href="/message/list/user/page/1/0">未审核留言</a></li>
                                     <li><a href="/user/logout">注销</a></li>
