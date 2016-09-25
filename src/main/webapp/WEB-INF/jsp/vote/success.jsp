@@ -22,6 +22,9 @@
                                     <div class="page-header">
                                         <h2>${status.index + 1}.${voteSubjectList.title}</h2>
                                     </div>
+                                    <c:if test="${(status.index + 1) eq voteSubjectTypeSize}">
+                                        <div>抱歉，这些意见您无法查看。</div>
+                                    </c:if>
                                     <div id="subject${voteSubjectList.id}" style="width: 100%;height: 150px">
 
                                     </div>

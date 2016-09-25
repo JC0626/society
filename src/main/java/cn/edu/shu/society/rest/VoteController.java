@@ -4,14 +4,12 @@ package cn.edu.shu.society.rest;
 import cn.edu.shu.society.annotation.Token;
 import cn.edu.shu.society.dto.UserDTO;
 import cn.edu.shu.society.dto.VoteResultMap;
+import cn.edu.shu.society.dto.VoteSubjectTypeDTO;
 import cn.edu.shu.society.dto.VoteTopicDTO;
 import cn.edu.shu.society.enums.ClientError;
 import cn.edu.shu.society.enums.VoteError;
 import cn.edu.shu.society.exception.AppViewException;
-import cn.edu.shu.society.service.VoteItemService;
-import cn.edu.shu.society.service.VoteSubjectResultService;
-import cn.edu.shu.society.service.VoteSubjectService;
-import cn.edu.shu.society.service.VoteTopicService;
+import cn.edu.shu.society.service.*;
 import cn.edu.shu.society.util.ConstantUtil;
 import com.github.pagehelper.PageInfo;
 import com.wordnik.swagger.annotations.Api;
@@ -22,10 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 @Api(value = "vote", description = "投票操作相关API")
@@ -46,6 +41,9 @@ public class VoteController {
 
     @Autowired
     VoteSubjectResultService voteSubjectResultService;
+
+    @Autowired
+    VoteSubjectTypeService voteSubjectTypeService;
 
     /**
      * 投票处理方法
@@ -113,11 +111,13 @@ public class VoteController {
     @RequestMapping(value = "/check/topic/{voteTopicId}", method = RequestMethod.GET)
     public ModelAndView check(@PathVariable(value = "voteTopicId") Long voteTopicId) {
         VoteTopicDTO voteTopicDTO = voteSubjectResultService.getVoteResult(voteTopicId);
+        List<VoteSubjectTypeDTO> voteSubjectTypeList = voteSubjectTypeService.selectAll();
         if (null == voteTopicDTO) {
             throw new AppViewException(VoteError.VOTE_NOW_NOT_EXIST.getMsg(),VoteError.VOTE_NOW_NOT_EXIST.getCode());
         }
         ModelAndView modelAndView = new ModelAndView("vote/success");
         modelAndView.addObject("voteTopic", voteTopicDTO);
+        modelAndView.addObject("voteSubjectTypeSize",voteSubjectTypeList.size());
         return modelAndView;
     }
 }
