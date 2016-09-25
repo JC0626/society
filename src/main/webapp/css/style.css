@@ -1,0 +1,11 @@
+div.carousel {
+    margin-top: -22px;
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+marquee a {
+    font-weight: bold;
+}
