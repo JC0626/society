@@ -11,7 +11,7 @@
         <div class="row">
             <jsp:include page="../left.jsp"/>
             <div class="col-md-9">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>类别名称</th>
@@ -49,7 +49,7 @@
                     </tbody>
                 </table>
                 <div id="addPlace" style="text-align:center">
-                    <a class="btn btn-default" onclick="addType()">增加</a>
+                    <a class="btn btn-default btn-sm" onclick="addType()">增加</a>
                 </div>
             </div>
         </div>
@@ -61,6 +61,7 @@
                 <input type="text" class="form-control validate[required]"
                        name="typeName" id="typeName" placeholder="类别名" value="">
             </div>
+            <br/>
             <div class="=form-group">
                 <label>所属类别 </label>
                 <select id="parentName" class="form-control validate[required]" name="parentName">
@@ -68,7 +69,8 @@
                     <option value="记名投票">记名投票</option>
                 </select>
             </div>
-            <div class="=form-group">
+            <br/>
+            <div class="form-group">
                 <input type="submit" class="btn" value="确认">
                 <input type="reset" class="btn" value="重置">
             </div>

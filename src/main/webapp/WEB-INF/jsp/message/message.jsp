@@ -22,13 +22,16 @@
                     <c:when test="${null ne pageInfo.list and 0 ne pageInfo.list.size()}">
                         <div class="list-group">
                             <c:forEach var="list" items="${pageInfo.list}" varStatus="status">
-                                <li class="list-group-item"><h2 class="list-group-item-heading"><a
+                                <li class="list-group-item">
+                                    <h2 class="list-group-item-heading">
+                                        <a
                                         data-toggle="collapse"
                                         href="#responselist${status.index}"
                                         aria-expanded="false"
                                         aria-controls="responselist${status.index}">
                                         ${list.title}
-                                </a></h2>
+                                        </a>
+                                    </h2>
                                     <div class="list-group-item-text" style="text-indent:2em;">
                                         <p>${list.content}</p>
                                         <div class="collapse" id="responselist${status.index}">

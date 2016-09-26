@@ -112,12 +112,18 @@ public class VoteController {
     public ModelAndView check(@PathVariable(value = "voteTopicId") Long voteTopicId) {
         VoteTopicDTO voteTopicDTO = voteSubjectResultService.getVoteResult(voteTopicId);
         List<VoteSubjectTypeDTO> voteSubjectTypeList = voteSubjectTypeService.selectAll();
+        int subjectiveQuestionLocation = 0;
+        for (int i = 0 ; i < voteSubjectTypeList.size() ; i++){
+            if ("主观题".equals(voteSubjectTypeList.get(i).getTypeName())){
+                subjectiveQuestionLocation = i + 1;
+            }
+        }
         if (null == voteTopicDTO) {
             throw new AppViewException(VoteError.VOTE_NOW_NOT_EXIST.getMsg(),VoteError.VOTE_NOW_NOT_EXIST.getCode());
         }
         ModelAndView modelAndView = new ModelAndView("vote/success");
         modelAndView.addObject("voteTopic", voteTopicDTO);
-        modelAndView.addObject("voteSubjectTypeSize",voteSubjectTypeList.size());
+        modelAndView.addObject("subjectiveQuestionLocation",subjectiveQuestionLocation);
         return modelAndView;
     }
 }

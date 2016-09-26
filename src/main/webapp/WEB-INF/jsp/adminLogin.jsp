@@ -29,14 +29,15 @@
                     </c:if>
                     <form id="loginForm" action="/admin/user/login" method="post">
                         <div class="=form-group">
-                            <label for="userId">学号 </label>
+                            <label for="userId">工号 </label>
                             <input type="text" class="form-control validate[required,custom[number]]" id="userId"
-                                   name="userId" placeholder="学号" value="">
+                                   name="userId" placeholder="请输入工号" value="">
                         </div>
+                        <br/>
                         <div class="=form-group">
                             <label for="password">密码 </label>
                             <input type="password" class="form-control validate[required]"
-                                   id="password" name="password" placeholder="密码" value="">
+                                   id="password" name="password" placeholder="请输入密码" value="">
                         </div>
                         <br/>
                         <div style="text-align: center; padding: 5px">

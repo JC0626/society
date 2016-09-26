@@ -17,7 +17,7 @@
             <div class="col-md-9">
                 <c:choose>
                     <c:when test="${null ne messageTypeList and 0 ne messageTypeList.size()}">
-                        <table class="table">
+                        <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th>留言类别</th>
