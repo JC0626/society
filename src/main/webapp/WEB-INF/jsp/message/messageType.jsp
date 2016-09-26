@@ -10,7 +10,7 @@
         <div class="row">
             <jsp:include page="../../left.jsp"/>
             <div class="col-md-9">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>留言类别</th>
